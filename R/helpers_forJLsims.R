@@ -422,9 +422,10 @@ get_results_survtoCDF = function(allresults, n, L,blips) {
       geom_density(alpha=.5)+
       scale_fill_manual(values=colors)+
       scale_color_manual(values=colors)+
-      theme(axis.title.x = element_blank())+
-      ggtitle("CDF of blip Sampling Dists", 
-              subtitle = paste0("n = ", n, ", t = ",blips[x],", bw = ", round(bw,4)))  
+      theme(axis.title.x = element_blank(), text = element_text(size = 24),
+            plot.title = element_text(size = 24), axis.text.y = element_blank(),
+            axis.text.x = element_text(size = 24)) +
+      ggtitle(paste0("n = ", n, ", t = ",blips[x],", bw = ", round(bw,4))) 
     ggover = ggover+geom_vline(xintercept = S_t,color="black")+
       geom_vline(xintercept=mean(res_temp[,inds[1]]),color = colors[1])+
       geom_vline(xintercept=mean(res_temp[,inds[2]]),color = colors[2])+
