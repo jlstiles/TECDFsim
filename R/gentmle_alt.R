@@ -1,6 +1,6 @@
 library(boot)
 ############## somewhat general TMLE framework takes initial data, an estimation function and an update
-############## function can be used for arbitrary TMLEs
+############## function can be used for arbitrary TMLE's
 
 #' @title gentmle
 #' @description General TMLE function that takes care of the bookkeeping of estimation and update steps.
