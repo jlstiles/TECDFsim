@@ -1,3 +1,4 @@
+# selects ideal bandwidth
 #' @export
 bwselect_jl = function(ests, SEs, len, plus = TRUE, z_alpha = 1.96)
 {
