@@ -13,14 +13,14 @@ library(boot)
 #' @param ..., Extra arguments that can be passed to update_fun and estimate_fun
 #' @export
 gentmle_alt <- function(initdata, estimate_fun, update_fun, max_iter = 100, N=NULL
-                        ,simultaneous.inference = TRUE, kernel = NULL, blip = NULL, h = NULL, ...) {
+                        ,simultaneous.inference = TRUE, kernel = NULL, TE = NULL, h = NULL, ...) {
   
   # create the kernel according to specs
   converge <- F
   n=length(initdata$Y)
   # cat(sprintf('bw: %f\n',bw))
   if (!is.null(kernel)) {
-    eststep <- estimate_fun(tmledata=initdata, b=blip, h=h, kernel=kernel)
+    eststep <- estimate_fun(tmledata=initdata, b=TE, h=h, kernel=kernel)
   } else {
     eststep <- estimate_fun(tmledata=initdata)
   }
@@ -38,7 +38,7 @@ gentmle_alt <- function(initdata, estimate_fun, update_fun, max_iter = 100, N=NU
     #         break}
     updatestep <- update_fun(tmledata=eststep)
     if (!is.null(kernel)) {
-      eststep <- estimate_fun(tmledata=updatestep, b=blip, h=h, kernel=kernel)
+      eststep <- estimate_fun(tmledata=updatestep, b=TE, h=h, kernel=kernel)
     } else {
       eststep <- estimate_fun(tmledata=updatestep)
     }

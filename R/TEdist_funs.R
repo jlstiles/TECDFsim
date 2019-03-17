@@ -1,5 +1,5 @@
 #' @export
-blipdist_update <- function(tmledata, Q.trunc = 1e-04) {
+TEdist_update <- function(tmledata, Q.trunc = 1e-04) {
   eps_q <- 0
   # fluctuate Q
   deriv = colMeans(as.data.frame(tmledata$Dstar))
@@ -35,7 +35,7 @@ blipdist_update <- function(tmledata, Q.trunc = 1e-04) {
 }
 
 #' @export
-blipdist_estimate <- function(tmledata, b, h, kernel) {
+TEdist_estimate <- function(tmledata, b, h, kernel) {
   nn <- length(tmledata$Y)
   B = tmledata$Q[,"Q1W"]-tmledata$Q[,"Q0W"]
   

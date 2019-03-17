@@ -1,13 +1,13 @@
 #' @export
-sim_bwselect = function(n, blip, bw_seq, g0, Q0, kernel, zscore = NULL)
+sim_bwselect = function(n, TE, bw_seq, g0, Q0, kernel, zscore = NULL)
 {
   tmledata = gentmledata(n, d = 1, g0, Q0, V=1, formu = NULL)
   r = length(bw_seq)
   # undebug(gentmle_alt3)
   select_info = lapply(bw_seq, FUN = function(h) {
-    info = gentmle_alt(initdata=tmledata, estimate_fun = blipdist_estimate,
+    info = gentmle_alt(initdata=tmledata, estimate_fun = TEdist_estimate,
                         update_fun = blipdist_update, max_iter = 1000, kernel = kernel,
-                        simultaneous.inference = FALSE, blip = blip, h = h)
+                        simultaneous.inference = FALSE, TE = TE, h = h)
     return(return(list(est = info$tmleests, IC = info$Dstar, SE = sqrt(info$ED2-mean(info$Dstar)^2))))
   })
   

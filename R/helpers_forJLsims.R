@@ -11,7 +11,7 @@ get.zscore = function(Dstar, alpha) {
 }
 
 #' @export 
-gendata.blip=function(n, d, g0, Q0){
+gendata.TE=function(n, d, g0, Q0){
   # d=1
   # n=10
   var_names = paste0("W", 1:d)

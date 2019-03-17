@@ -5,7 +5,7 @@
 \title{gentmle}
 \usage{
 gentmle_alt(initdata, estimate_fun, update_fun, max_iter = 100, N = NULL,
-  simultaneous.inference = TRUE, kernel = NULL, blip = NULL, h = NULL,
+  simultaneous.inference = TRUE, kernel = NULL, TE = NULL, h = NULL,
   ...)
 }
 \arguments{
