@@ -1,6 +1,5 @@
 library(boot)
-############## somewhat general TMLE framework takes initial data, an estimation function and an update
-############## function can be used for arbitrary TMLE's
+# Makes polynomial kernels of user spec order
 
 #' @export 
 make_kernel = function(degree, R){
